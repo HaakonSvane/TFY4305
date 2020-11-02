@@ -151,7 +151,7 @@ class Visualizer:
                 return
             self.axes[ind].legend(loc=location, frameon=False)
 
-    def add_data(self, x_data, y_data, subplot_index, line_name="line_name", color=None, linestyle=None, marker=None, lw=1):
+    def add_data(self, x_data, y_data, subplot_index, line_name="line_name", color=None, linestyle=None, marker=None, lw=1, **kwargs):
         # Adds data to the Solver. Takes an array of x-values and a matrix (1d or 2d) of y-data to be plotted
         ind = tuple(subplot_index)
 
@@ -169,7 +169,7 @@ class Visualizer:
             else:
                 self.data[ind] = [(x_data, y_data)]
 
-            entry, = self.axes[ind].plot([], [], lw=lw, label=line_name, linestyle=linestyle, marker=marker, color=color)
+            entry, = self.axes[ind].plot([], [], lw=lw, label=line_name, linestyle=linestyle, marker=marker, color=color, **kwargs)
             self.artists.append(entry)
 
             force_limits = False
